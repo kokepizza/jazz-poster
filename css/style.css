@@ -1,0 +1,25 @@
+/* VARIABLES */
+:root {
+    --background: #fff; /* No tocar */
+    --poster-color: #fff; /* Puede cambiarse */
+}
+
+/* GENERAL - No tocar */
+body {
+    background-color: var(--background);
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#poster{
+    aspect-ratio: 4 / 5;
+    max-height: 50vmax;
+    height: 100%;
+    background-color: var(--poster-color);
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+}
+
+/* COMPONENTS  */

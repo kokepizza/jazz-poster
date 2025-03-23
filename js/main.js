@@ -22,8 +22,8 @@ function dragMoveListener(event) {
 
 // Initialize when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Get all draggable elements
-  const draggableElements = document.querySelectorAll('.musician, .shape');
+  // Get all draggable elements (now including location and date-box)
+  const draggableElements = document.querySelectorAll('.musician, .shape, .location, .date-box');
   
   // Store original transforms and initialize data attributes
   draggableElements.forEach(element => {
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Make elements draggable with interact.js
-  interact('.musician, .shape').draggable({
+  // Make elements draggable with interact.js (now including location and date-box)
+  interact('.musician, .shape, .location, .date-box').draggable({
     // Enable inertia for the draggable elements
     inertia: true,
     

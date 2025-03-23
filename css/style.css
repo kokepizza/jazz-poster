@@ -1,15 +1,15 @@
 /* VARIABLES */
 :root {
-    --background: #fff; /* No tocar */
-    --poster-color: #222; /* Fondo negro como en la imagen */
-    --title-color: #f5f0e1; /* Color beige para el título */
-    --musician1-color: #e74c3c; /* Rojo */
-    --musician2-color: #3498db; /* Azul */
-    --musician3-color: #2ecc71; /* Verde */
-    --shape1-color: #f1c40f; /* Amarillo */
-    --shape2-color: #9b59b6; /* Morado */
-    --shape3-color: #e67e22; /* Naranja */
-    --shape4-color: #1abc9c; /* Turquesa */
+    --background: #fff;
+    --poster-color: #222;
+    --title-color: #f5f0e1;
+    --musician1-color: #e74c3c;
+    --musician2-color: #3498db;
+    --musician3-color: #2ecc71;
+    --shape1-color: #f1c40f;
+    --shape2-color: #9b59b6;
+    --shape3-color: #e67e22;
+    --shape4-color: #1abc9c;
 }
 
 /* GENERAL - No tocar */
@@ -45,7 +45,7 @@ body {
 
 .title h1 {
     color: var(--title-color);
-    font-size: 8vw;
+    font-size: 7.5rem;
     line-height: 0.9;
     text-transform: uppercase;
     font-weight: bold;
@@ -54,22 +54,23 @@ body {
 
 .location {
     position: absolute;
-    top: 20%;
+    top: 22%;
     right: 10%;
-    background-color: transparent;
-    border: 2px solid var(--title-color);
+    background-color: var(--title-color);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     transform: rotate(-5deg);
-    padding: 15px 30px;
+    padding: 15px 50px;
     z-index: 10;
-    pointer-events: none;
+    text-transform: uppercase;
+    cursor: grab;
+    touch-action: none;
 }
 
 .location h2 {
-    color: var(--title-color);
+    color: var(--poster-color);
     font-size: 1.5rem;
     text-align: center;
     font-weight: normal;
@@ -85,7 +86,8 @@ body {
     font-size: 1.2rem;
     transform: rotate(-5deg);
     z-index: 10;
-    pointer-events: none;
+    cursor: grab;
+    touch-action: none;
 }
 
 .musicians {
@@ -106,28 +108,29 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 5;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     width: 180px;
     height: 50px;
+    text-transform: uppercase;
 }
 
 .musician-red {
     background-color: var(--musician1-color);
-    top: 50%;
+    bottom: 30%;
     left: 20%;
     transform: rotate(15deg);
 }
 
 .musician-blue {
     background-color: var(--musician2-color);
-    top: 60%;
-    left: 30%;
+    bottom: 20%;
+    left: 50%;
     transform: rotate(-10deg);
 }
 
 .musician-green {
     background-color: var(--musician3-color);
-    top: 70%;
+    bottom: 10%;
     left: 15%;
     transform: rotate(5deg);
 }
@@ -147,8 +150,7 @@ body {
 }
 
 .triangle {
-    width: 0;
-    height: 0;
+
     border-left: 70px solid transparent;
     border-right: 70px solid transparent;
     border-bottom: 140px solid var(--shape1-color);
@@ -161,7 +163,7 @@ body {
     height: 120px;
     border-radius: 50%;
     background-color: var(--shape2-color);
-    top: 60%;
+    top: 50%;
     left: 60%;
 }
 
@@ -170,14 +172,14 @@ body {
     height: 70px;
     background-color: var(--shape3-color);
     border-radius: 140px 140px 0 0;
-    top: 20%;
-    left: 50%;
+    top: 40%;
+    right: 0;
     transform: rotate(45deg);
 }
 
 .rectangle {
-    width: 160px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     background-color: var(--shape4-color);
     top: 40%;
     left: 40%;
@@ -202,4 +204,36 @@ body {
 /* Styles for when an element is being dragged */
 .musician.can-drop, .shape.can-drop {
     opacity: 0.8;
+}
+
+@media screen and (max-width: 768px) {
+    .title h1 {
+        font-size: 4rem;
+    }
+    
+    .location h2 {
+        font-size: 1rem;
+    }
+    
+    .triangle {
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 80px solid var(--shape1-color);
+    }
+    
+    .circle {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .semicircle {
+        width: 90px;
+        height: 45px;
+        border-radius: 90px 90px 0 0;
+    }
+    
+    .rectangle {
+        width: 100px;
+        height: 40px;
+    }
 }

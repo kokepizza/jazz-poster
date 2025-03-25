@@ -8,8 +8,9 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-        <title>Interactive Jazz Poster</title>
-        <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+        <link rel="icon" href="img/favicon.png" type="image/png">
+        <title>Jazz Poster</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" defer></script>
         <script src="js/main.js" defer></script>
     </head>
 
@@ -17,25 +18,19 @@
 	    <div id="poster">
             <!-- Componentes del cartel aqui -->
             <div class="title">
-                <h1>JAZZ NIGHT</h1>
+                <svg viewBox="0 0 434 134" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M396.034 125.165L399.822 38.2032L387.587 37.6703L388.488 17L433.562 18.9634L432.662 39.6337L420.427 39.1008L416.639 126.063L396.034 125.165Z"/>
+                    <path d="M340 112V9H358.995V45.8108H368.005V9H387V112H368.005V65.2989H358.995V112H340Z"/>
+                    <path d="M308.049 117C293.35 117 286 106.152 286 84.4554V38.7121C286 18.904 294.422 9 311.266 9C318.206 9 323.529 10.4464 327.233 13.3393C330.937 16.192 333.491 20.3705 334.894 25.875C336.298 31.3795 337 38.0893 337 46.0045H316.881V36.6027C316.881 34.3125 316.569 32.404 315.945 30.8772C315.36 29.3103 314.112 28.5268 312.202 28.5268C309.823 28.5268 308.244 29.3504 307.464 30.9978C306.724 32.6451 306.353 34.4531 306.353 36.4219V87.8304C306.353 90.683 306.704 93.0134 307.406 94.8214C308.147 96.5893 309.57 97.4732 311.675 97.4732C313.859 97.4732 315.302 96.5893 316.003 94.8214C316.744 93.0134 317.115 90.6429 317.115 87.7098V72.5826H311.617V54.2612H336.766V116.036H328.519L325.01 107.116C321.423 113.705 315.769 117 308.049 117Z"/>
+                    <path d="M269 117V11H284V117H269Z"/>
+                    <path d="M215.498 105.132L212 1.71729L233.27 0.997833L244.465 50.2089L242.789 0.675868L262.767 0.000138539L266.265 103.414L246.052 104.098L233.962 52.7407L235.711 104.448L215.498 105.132Z"/>
+                    <path d="M159 115V94.8182L184.513 24.4341H161.469V4H208V23.425L182.044 94.5659H206.924V115H159Z"/>
+                    <path d="M111 130.164L112.318 109.589L142.827 39.4925L119.423 37.9932L120.757 17.1606L168.016 20.1881L166.747 39.9919L135.739 110.831L161.008 112.45L159.674 133.283L111 130.164Z"/>
+                    <path d="M60 106L70.1927 0H105.987L116 106H96.0343L94.5353 88.8955H81.8244L80.5054 106H60ZM83.3233 71.9716H92.9165L88.2998 18.0682H87.3405L83.3233 71.9716Z"/>
+                    <path d="M27.8601 121.228C22.7201 120.83 18.1106 119.473 14.0317 117.158C9.95282 114.842 6.8115 111.644 4.60775 107.562C2.45054 103.441 1.59301 98.5291 2.03517 92.8276L4.251 64.255L26.798 66.0036L24.6877 93.2155C24.5336 95.2024 24.7985 96.8307 25.4821 98.1005C26.209 99.3735 27.4579 100.079 29.2289 100.216C32.6412 100.481 34.5098 98.5181 34.8347 94.3283L41.643 6.5374L64.6435 8.32111L58.0111 93.8444C57.5422 99.8915 55.9474 105.047 53.2267 109.312C50.5094 113.534 46.962 116.691 42.5847 118.785C38.2107 120.836 33.3025 121.65 27.8601 121.228Z"/>
+                </svg>
             </div>
-            <div class="location">
-                <h2>Palau de la Música Catalana</h2>
-            </div>
-            <div class="date-box">
-                <p>27 Març 2025</p>
-            </div>
-            <div class="musicians">
-                <div class="musician musician-red">Rita Payés</div>
-                <div class="musician musician-blue">Andrea Motis</div>
-                <div class="musician musician-green">Guillem Arnedo</div>
-            </div>
-            <div class="shapes">
-                <div class="shape triangle"></div>
-                <div class="shape circle"></div>
-                <div class="shape semicircle"></div>
-                <div class="shape rectangle"></div>
-            </div>
+
         </div>
     </body>
     

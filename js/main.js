@@ -27,7 +27,7 @@ var posterWidth = document.getElementById('poster').clientWidth;
 
 // Crear objetos (posición, width y height)
 var rectDate = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.9, posterWidth * 0.6, posterHeight * 0.08, {
-  render: { fillStyle: '#999' }, // Oscuro
+  render: { fillStyle: '#999' }, // Gris oscuro
   isStatic: false,
   // chamfer: { radius: posterHeight * 0.04 },
   text: {
@@ -38,7 +38,7 @@ var rectDate = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.9, posterWid
 });
 
 var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, posterWidth * 0.5, posterHeight * 0.08, {
-  render: { fillStyle: '#999' }, // Gris claro
+  render: { fillStyle: '#999' }, // Gris oscuro
   isStatic: false,
   // chamfer: { radius: posterHeight * 0.05 },
   angle: Math.PI / 40,

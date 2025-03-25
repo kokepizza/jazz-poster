@@ -43,7 +43,7 @@ var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, poste
   // chamfer: { radius: posterHeight * 0.05 },
   angle: Math.PI / 40,
   text: {
-      content: "Palau de la Música",
+      content: "PALAU DE LA MÚSICA",
       color: "#333",
       size: '0.9rem'
   }

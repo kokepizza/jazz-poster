@@ -26,74 +26,79 @@ var posterHeight = document.getElementById('poster').clientHeight;
 var posterWidth = document.getElementById('poster').clientWidth;
 
 // Crear objetos (posición, width y height)
-var rectDate = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.9, posterWidth * 0.6, posterHeight * 0.12, {
-  render: { fillStyle: '#444' }, // Oscuro
+var rectDate = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.9, posterWidth * 0.6, posterHeight * 0.08, {
+  render: { fillStyle: '#999' }, // Oscuro
   isStatic: false,
   // chamfer: { radius: posterHeight * 0.04 },
   text: {
       content: "DIJOUS 27 DE MARÇ",
-      color: "#f5f0e1",
-      size: '1rem'
+      color: "#333",
+      size: '.9rem'
   }
 });
 
-var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, posterWidth * 0.5, posterHeight * 0.1, {
-  render: { fillStyle: '#444' }, // Gris claro
+var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, posterWidth * 0.5, posterHeight * 0.08, {
+  render: { fillStyle: '#999' }, // Gris claro
   isStatic: false,
   // chamfer: { radius: posterHeight * 0.05 },
   angle: Math.PI / 40,
   text: {
       content: "Palau de la Música",
-      color: "#f5f0e1",
+      color: "#333",
       size: '0.9rem'
   }
 });
 
-var rectRita = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.3, posterWidth * 0.5, posterHeight * 0.08, {
+var rectRita = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.3, posterWidth * 0.4, posterHeight * 0.1, {
   render: { fillStyle: '#31788C' }, // Azul
   isStatic: false,
   angle: Math.PI / 20,
   text: {
       content: "RITA PAYÉS",
-      color: "#f5f0e1",
+      color: "#F5F0E1",
       size: '1rem'
   }
 });
 
-var rectAndrea = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.45, posterWidth * 0.6, posterHeight * 0.08, {
+var rectAndrea = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.45, posterWidth * 0.5, posterHeight * 0.1, {
   render: { fillStyle: '#B2252B' }, // Rojo
   isStatic: false,
   angle: -Math.PI / 20,
   text: {
       content: "ANDREA MOTIS",
-      color: "#f5f0e1",
+      color: "#F5F0E1",
       size: '1rem'
   }
 });
 
-var rectGuillem = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.6, posterWidth * 0.55, posterHeight * 0.08, {
+var rectGuillem = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.6, posterWidth * 0.6, posterHeight * 0.1, {
   render: { fillStyle: '#4B9242' }, // Verde
   isStatic: false,
   angle: Math.PI / 30,
   text: {
       content: "GUILLEM ARNEDO",
-      color: "#f5f0e1",
+      color: "#F5F0E1",
       size: '1rem'
   }
 });
 
 var circlePink = Bodies.circle(posterWidth * 0.1, posterHeight * 0.9, posterWidth * 0.08, {
-  render: { fillStyle: '#C89486' }, // Rosa
+  render: { fillStyle: '#DFAB95' }, // Rosa
   isStatic: false,
 });
 
-var circleBlue = Bodies.circle(posterWidth * 0.8, posterHeight * 0.7, posterWidth * 0.1, {
-  render: { fillStyle: '#2E7785' }, // Azul
+var circlePrice = Bodies.circle(posterWidth * 0.8, posterHeight * 0.7, posterWidth * 0.1, {
+  render: { fillStyle: '#C6AA83' }, // Light
   isStatic: false,
+  text: {
+    content: "12€",
+    color: "#333",
+    size: '1rem'
+  }
 });
 
 var triangle1 = Bodies.polygon(posterWidth * 0.75, posterHeight * 0.2, 3, posterWidth * 0.2, {
-  render: { fillStyle: '#E6A817' }, // Amarillo
+  render: { fillStyle: '#DBC052' }, // Amarillo
   isStatic: false,
 });
 
@@ -103,7 +108,7 @@ var triangle2 = Bodies.fromVertices(posterWidth * 0.8, posterHeight * 0.3, [
   { x: posterWidth * 0.3, y: posterHeight * 0.1 },
   { x: posterWidth * 0.1, y: posterHeight * 0.24 }
 ], {
-  render: { fillStyle: '#9C59D1' }, // Púrpura
+  render: { fillStyle: '#C6AA83' }, // Púrpura
   isStatic: false,
 });
 
@@ -112,27 +117,32 @@ var triangle3 = Bodies.fromVertices(posterWidth * 0.3, posterHeight * 0.3, [
   { x: posterWidth * 0.24, y: 0 },
   { x: 0, y: posterHeight * 0.24 }
 ], {
-  render: { fillStyle: '#FF6B6B' }, // Rojo claro
+  render: { fillStyle: '#C18369' }, // Rojo claro
   isStatic: false,
 });
 
-var trapezoid1 = Bodies.trapezoid(posterWidth * 0.5, posterHeight * 0.7, posterWidth * 0.3, posterWidth * 0.16, 0.4, {
-  render: { fillStyle: '#0077B6' }, // Azul claro
+var trapezoid1 = Bodies.trapezoid(posterWidth * 0.6, posterHeight * 0.7, posterWidth * 0.3, posterWidth * 0.16, 0.4, {
+  render: { fillStyle: '#C7A92F' }, // Azul claro
   isStatic: false,
 });
 
 // Cuadrado 1
 var square1 = Bodies.rectangle(posterWidth * 0.6, posterHeight * 0.2, posterWidth * 0.2, posterWidth * 0.2, {
-  render: { fillStyle: '#6A0572' }, // Morado
+  render: { fillStyle: '#74AC87' }, // Verde azulado
   isStatic: false,
   angle: Math.PI / 6
 });
 
 // Cuadrado 2
 var square2 = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.5, posterWidth * 0.25, posterWidth * 0.25, {
-  render: { fillStyle: '#1B998B' }, // Verde azulado
+  render: { fillStyle: '#74ACAB' }, // Azul verdoso
   isStatic: false,
-  angle: -Math.PI / 8
+  angle: -Math.PI / 8,
+  text: {
+    content: "22:00H",
+    color: "#333",
+    size: '1rem'
+  }
 });
 
 // ground & walls
@@ -167,7 +177,7 @@ Composite.add(engine.world, [
   rectAndrea,
   rectGuillem,
   circlePink,
-  circleBlue,
+  circlePrice,
   rectLocation,
   triangle1,
   triangle2,

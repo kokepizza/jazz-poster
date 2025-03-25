@@ -37,7 +37,7 @@ var rectDate = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.9, posterWid
   }
 });
 
-var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, posterWidth * 0.5, posterHeight * 0.08, {
+var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, posterWidth * 0.6, posterHeight * 0.08, {
   render: { fillStyle: '#999' }, // Gris oscuro
   isStatic: false,
   // chamfer: { radius: posterHeight * 0.05 },
@@ -210,7 +210,7 @@ Matter.Events.on(render, 'afterRender', function() {
             ctx.rotate(body.angle);
             
             // Configurar el estilo del texto
-            ctx.font = `bold ${body.text.size} 'Anton', sans-serif`;
+            ctx.font = `bold ${body.text.size} 'Oswald', sans-serif`;
             ctx.textAlign = "center";
             ctx.textBaseline = "middle";
             ctx.fillStyle = body.text.color;

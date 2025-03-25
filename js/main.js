@@ -8,72 +8,181 @@ var Engine = Matter.Engine,
 // create an engine
 var engine = Engine.create();
 
-// create a renderer targeting the poster element
+// crear el render, es decir el canvas, en el #poster
 var render = Render.create({
     element: document.getElementById('poster'),
     engine: engine,
     options: {
-        width: document.getElementById('poster').clientWidth,
-        height: document.getElementById('poster').clientHeight,
-        background: 'transparent',
-        wireframes: false
-    }
+      width: document.getElementById('poster').clientWidth,
+      height: document.getElementById('poster').clientHeight,
+      background: 'transparent',
+      wireframes: false,
+      pixelRatio: window.devicePixelRatio || 2, // para mayor resolución
+  }
 });
 
 // altura y ancho del poster
 var posterHeight = document.getElementById('poster').clientHeight;
 var posterWidth = document.getElementById('poster').clientWidth;
 
-// Crear rectángulos con nombres de músicos de jazz
-var rectRita = Bodies.rectangle(posterWidth * 0.6, posterHeight * 0.4, 150, 60, {
-    render: { fillStyle: '#3498db' }, // Azul
-    isStatic: false,
-    angle: Math.PI / 12,
-    text: {
-        content: "RITA PAYÉS",
-        color: "#ffffff",
-        size: "1.5rem"
-    }
+// Crear objetos (posición, width y height)
+var rectDate = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.9, posterWidth * 0.6, posterHeight * 0.12, {
+  render: { fillStyle: '#444' }, // Oscuro
+  isStatic: false,
+  // chamfer: { radius: posterHeight * 0.04 },
+  text: {
+      content: "DIJOUS 27 DE MARÇ",
+      color: "#f5f0e1",
+      size: '1rem'
+  }
 });
 
-var rectAndrea = Bodies.rectangle(posterWidth * 0.4, posterHeight * 0.6, 150, 60, {
-    render: { fillStyle: '#e74c3c' }, // Rojo
-    isStatic: false,
-    angle: -Math.PI / 10,
-    text: {
-        content: "ANDREA MOTIS",
-        color: "#ffffff",
-        size: "1.5rem"
-    }
+var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, posterWidth * 0.5, posterHeight * 0.1, {
+  render: { fillStyle: '#444' }, // Gris claro
+  isStatic: false,
+  // chamfer: { radius: posterHeight * 0.05 },
+  angle: Math.PI / 40,
+  text: {
+      content: "Palau de la Música",
+      color: "#f5f0e1",
+      size: '0.9rem'
+  }
 });
 
-var rectGuillem = Bodies.rectangle(posterWidth * 0.7, posterHeight * 0.7, 150, 60, {
-    render: { fillStyle: '#2ecc71' }, // Verde
-    isStatic: false,
-    angle: Math.PI / 20,
-    text: {
-        content: "GUILLEM ARNEDO",
-        color: "#ffffff",
-        size: "1.5rem"
-    }
+var rectRita = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.3, posterWidth * 0.5, posterHeight * 0.08, {
+  render: { fillStyle: '#31788C' }, // Azul
+  isStatic: false,
+  angle: Math.PI / 20,
+  text: {
+      content: "RITA PAYÉS",
+      color: "#f5f0e1",
+      size: '1rem'
+  }
+});
+
+var rectAndrea = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.45, posterWidth * 0.6, posterHeight * 0.08, {
+  render: { fillStyle: '#B2252B' }, // Rojo
+  isStatic: false,
+  angle: -Math.PI / 20,
+  text: {
+      content: "ANDREA MOTIS",
+      color: "#f5f0e1",
+      size: '1rem'
+  }
+});
+
+var rectGuillem = Bodies.rectangle(posterWidth * 0.5, posterHeight * 0.6, posterWidth * 0.55, posterHeight * 0.08, {
+  render: { fillStyle: '#4B9242' }, // Verde
+  isStatic: false,
+  angle: Math.PI / 30,
+  text: {
+      content: "GUILLEM ARNEDO",
+      color: "#f5f0e1",
+      size: '1rem'
+  }
+});
+
+var circlePink = Bodies.circle(posterWidth * 0.1, posterHeight * 0.9, posterWidth * 0.08, {
+  render: { fillStyle: '#C89486' }, // Rosa
+  isStatic: false,
+});
+
+var circleBlue = Bodies.circle(posterWidth * 0.8, posterHeight * 0.7, posterWidth * 0.1, {
+  render: { fillStyle: '#2E7785' }, // Azul
+  isStatic: false,
+});
+
+var triangle1 = Bodies.polygon(posterWidth * 0.75, posterHeight * 0.2, 3, posterWidth * 0.2, {
+  render: { fillStyle: '#E6A817' }, // Amarillo
+  isStatic: false,
+});
+
+
+var triangle2 = Bodies.fromVertices(posterWidth * 0.8, posterHeight * 0.3, [
+  { x: 0, y: 0 },
+  { x: posterWidth * 0.3, y: posterHeight * 0.1 },
+  { x: posterWidth * 0.1, y: posterHeight * 0.24 }
+], {
+  render: { fillStyle: '#9C59D1' }, // Púrpura
+  isStatic: false,
+});
+
+var triangle3 = Bodies.fromVertices(posterWidth * 0.3, posterHeight * 0.3, [
+  { x: 0, y: 0 },
+  { x: posterWidth * 0.24, y: 0 },
+  { x: 0, y: posterHeight * 0.24 }
+], {
+  render: { fillStyle: '#FF6B6B' }, // Rojo claro
+  isStatic: false,
+});
+
+var trapezoid1 = Bodies.trapezoid(posterWidth * 0.5, posterHeight * 0.7, posterWidth * 0.3, posterWidth * 0.16, 0.4, {
+  render: { fillStyle: '#0077B6' }, // Azul claro
+  isStatic: false,
+});
+
+// Cuadrado 1
+var square1 = Bodies.rectangle(posterWidth * 0.6, posterHeight * 0.2, posterWidth * 0.2, posterWidth * 0.2, {
+  render: { fillStyle: '#6A0572' }, // Morado
+  isStatic: false,
+  angle: Math.PI / 6
+});
+
+// Cuadrado 2
+var square2 = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.5, posterWidth * 0.25, posterWidth * 0.25, {
+  render: { fillStyle: '#1B998B' }, // Verde azulado
+  isStatic: false,
+  angle: -Math.PI / 8
 });
 
 // ground & walls
-var ground = Bodies.rectangle(posterWidth/2, posterHeight, posterWidth, 1, { isStatic: true, render: { visible: false } });
-var leftWall = Bodies.rectangle(0, posterHeight/2, 1, posterHeight, { isStatic: true, render: { visible: false } });
-var rightWall = Bodies.rectangle(posterWidth, posterHeight/2, 1, posterHeight, { isStatic: true, render: { visible: false } });
-var topWall = Bodies.rectangle(posterWidth/2, 0, posterWidth, 1, { isStatic: true, render: { visible: false } });
+var ground = Bodies.rectangle(posterWidth/2, posterHeight, posterWidth, 1, { 
+    isStatic: true, 
+    render: { visible: false } 
+});
 
-// Reducir la gravedad para un movimiento más suave
-engine.world.gravity.y = 1;
+var leftWall = Bodies.rectangle(0, posterHeight/2, 1, posterHeight, { 
+    isStatic: true, 
+    render: { visible: false } 
+});
 
-// add all of the bodies to the world
-Composite.add(engine.world, [rectRita, rectAndrea, rectGuillem, ground, leftWall, rightWall, topWall]);
+var rightWall = Bodies.rectangle(posterWidth, posterHeight/2, 1, posterHeight, { 
+    isStatic: true, 
+    render: { visible: false } 
+});
 
-// run the renderer
+var topWall = Bodies.rectangle(posterWidth/2, 0, posterWidth, 1, { 
+    isStatic: true, 
+    render: { visible: false } 
+});
+
+
+// gravedad en Y
+engine.world.gravity.y = 0.2;
+
+// añadir todos los Body al world del engine
+Composite.add(engine.world, [
+  rectDate,
+  rectRita,
+  rectAndrea,
+  rectGuillem,
+  circlePink,
+  circleBlue,
+  rectLocation,
+  triangle1,
+  triangle2,
+  triangle3,
+  trapezoid1,
+  square1,
+  square2,
+  ground,
+  leftWall,
+  rightWall,
+  topWall
+]);
+
 Render.run(render);
 
-// create runner
 var runner = Runner.create();
 
 // Evento para renderizar texto en las formas

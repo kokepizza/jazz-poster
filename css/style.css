@@ -25,23 +25,8 @@ html {
     background-color: var(--dark-color);
     position: relative;
     overflow: hidden;
-    font-family: 'Oswald', sans-serif;
+    font-family: system-ui, 'Segoe UI', 'Helvetica Neue', sans-serif;
     border: .5rem solid var(--light-color);
-}
-
-footer {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--light-color);
-    
-    a {
-        color: var(--light-color);
-        text-decoration: none;
-        font-family: system-ui, sans-serif;
-    }
-    
 }
 
 #poster canvas {
@@ -51,6 +36,11 @@ footer {
     width: 100%;
     height: 100%;
     z-index: 1;
+    cursor: grab;
+
+    &:active {
+        cursor: grabbing;
+    }
 }
 
 #poster .title {
@@ -63,7 +53,6 @@ footer {
     pointer-events: none;
 }
 
-/* COMPONENTS */
 .title svg {
     width: 100%;
     height: 100%;

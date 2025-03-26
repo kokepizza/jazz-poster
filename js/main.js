@@ -8,13 +8,14 @@ var Engine = Matter.Engine,
 // create an engine
 var engine = Engine.create();
 
-// Asegurarse de que el DOM está completamente cargado antes de inicializar
 document.addEventListener('DOMContentLoaded', function() {
-    // Esperar un momento para asegurar que las dimensiones estén correctamente calculadas
+    
     setTimeout(initPhysics, 100);
+
 });
 
 function initPhysics() {
+
     // crear el render, es decir el canvas, en el #poster
     var render = Render.create({
         element: document.getElementById('poster'),
@@ -40,11 +41,9 @@ function initPhysics() {
       text: {
           content: "DIJOUS 27 DE MARÇ",
           color: "#333",
-          size: '.9rem'
+          size: '1.3rem'
       }
     });
-
-    // ... resto de tu código para crear objetos ...
     
     var rectLocation = Bodies.rectangle(posterWidth * 0.8, posterHeight * 0.2, posterWidth * 0.6, posterHeight * 0.08, {
       render: { fillStyle: '#999' }, // gris oscuro
@@ -54,7 +53,7 @@ function initPhysics() {
       text: {
           content: "PALAU DE LA MÚSICA",
           color: "#333",
-          size: '0.9rem'
+          size: '1.3rem'
       }
     });
     
@@ -65,7 +64,7 @@ function initPhysics() {
       text: {
           content: "RITA PAYÉS",
           color: "#F5F0E1",
-          size: '1rem'
+          size: '1.3rem'
       }
     });
     
@@ -76,7 +75,7 @@ function initPhysics() {
       text: {
           content: "ANDREA MOTIS",
           color: "#F5F0E1",
-          size: '1rem'
+          size: '1.3rem'
       }
     });
     
@@ -87,7 +86,7 @@ function initPhysics() {
       text: {
           content: "GUILLEM ARNEDO",
           color: "#F5F0E1",
-          size: '1rem'
+          size: '1.3rem'
       }
     });
     
@@ -102,7 +101,7 @@ function initPhysics() {
       text: {
         content: "12€",
         color: "#333",
-        size: '1rem'
+        size: '1.3rem'
       }
     });
     
@@ -147,7 +146,7 @@ function initPhysics() {
       text: {
         content: "22:00H",
         color: "#333",
-        size: '1rem'
+        size: '1.3rem'
       }
     });
     
@@ -176,7 +175,7 @@ function initPhysics() {
     // gravedad en Y
     engine.world.gravity.y = 0.2;
     
-    // añadir todos los Body al world del engine
+    // añado todos los Bodies al world del engine
     Composite.add(engine.world, [
       rectDate,
       rectRita,
@@ -205,26 +204,21 @@ function initPhysics() {
     Matter.Events.on(render, 'afterRender', function() {
         var ctx = render.context;
         
-        // recorrer todos los cuerpos
         Composite.allBodies(engine.world).forEach(function(body) {
             if (body.text) {
-                // guardar el estado actual del contexto
+
                 ctx.save();
                 
-                // trasladar y rotar el contexto para alinear con el cuerpo
                 ctx.translate(body.position.x, body.position.y);
                 ctx.rotate(body.angle);
                 
-                // configurar el estilo del texto
-                ctx.font = `bold ${body.text.size} 'Oswald', sans-serif`;
+                ctx.font = `bold ${body.text.size} 'Bebas Neue', sans-serif`;
                 ctx.textAlign = "center";
                 ctx.textBaseline = "middle";
                 ctx.fillStyle = body.text.color;
                 
-                // dibujar el texto
                 ctx.fillText(body.text.content, 0, 0);
                 
-                // restaurar el contexto
                 ctx.restore();
             }
         });
@@ -235,7 +229,7 @@ function initPhysics() {
     var mouseConstraint = Matter.MouseConstraint.create(engine, {
         mouse: mouse,
         constraint: {
-            stiffness: 0.2,
+            stiffness: 0.2, // rigidez de la conexión con el mouse
             render: {
                 visible: false
             }

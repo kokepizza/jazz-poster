@@ -170,11 +170,24 @@ function initPhysics() {
       isStatic: true, 
       render: { visible: false } 
     });
+
+    // interactividad mouse -> Bodies
+    var mouse = Matter.Mouse.create(render.canvas);
+    var mouseConstraint = Matter.MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+            stiffness: 0.2, // rigidez de la conexión con el mouse
+            render: {
+                visible: false
+            }
+        }
+    });
     
     
     // gravedad en Y
     engine.world.gravity.y = 0.2;
     
+
     // añado todos los Bodies al world del engine
     Composite.add(engine.world, [
       rectDate,
@@ -193,7 +206,8 @@ function initPhysics() {
       ground,
       leftWall,
       rightWall,
-      topWall
+      topWall,
+      mouseConstraint // interatividad con el mouse
     ]);
     
     Render.run(render);
@@ -223,21 +237,6 @@ function initPhysics() {
             }
         });
     });
-    
-    // añadir interactividad con el mouse
-    var mouse = Matter.Mouse.create(render.canvas);
-    var mouseConstraint = Matter.MouseConstraint.create(engine, {
-        mouse: mouse,
-        constraint: {
-            stiffness: 0.2, // rigidez de la conexión con el mouse
-            render: {
-                visible: false
-            }
-        }
-    });
-    
-    Composite.add(engine.world, mouseConstraint);
-    render.mouse = mouse;
     
     // run the engine
     Runner.run(runner, engine);
